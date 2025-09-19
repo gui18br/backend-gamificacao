@@ -2,12 +2,12 @@ from pydantic import BaseModel, EmailStr
 from typing import Optional
 
 class UserBase(BaseModel):
-    email: EmailStr
-    full_name: str
-    is_active: bool = True
+    nome: EmailStr
+    icone: str
+    tipo: str
     
 class UserCreate(UserBase):
-    password: str
+    senha: str
     
 class UserResponse(UserBase):
     id: int

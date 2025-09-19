@@ -6,7 +6,7 @@ class Aluno(Base):
     __tablename__ = "alunos"
     
     id = Column(Integer, ForeignKey("Usuarios.id"), primary_key=True)
-    matricula = Column(String, unique=True, nullable=False)
-    nickname = Column(String, unique=True, nullable=False)
+    matricula = Column(String, unique=True, nullable=True)
+    nickname = Column(String, unique=True, nullable=True)
     
     usuario = relationship("Usuario", back_populates="aluno")
