@@ -11,7 +11,8 @@ class UserCreate(UserBase):
     
 class UserResponse(UserBase):
     id: int
-    tipo: str
+    tipo_user: str
+    access_token: str
     
     class Config:
         orm_mode = True

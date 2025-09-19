@@ -8,6 +8,7 @@ class ProfessorCreate(ProfessorBase):
 
 class ProfessorResponse(ProfessorBase):
     id: int
+    user_id: int
     
     class Config:
         orm_mod = True
