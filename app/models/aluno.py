@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 from .database import Base
 
@@ -9,5 +9,9 @@ class Aluno(Base):
     nickname = Column(String, unique=True, nullable=True)
     nome = Column(String, nullable=False)
     senha = Column(String, nullable=True)
-    icone = Column(String, nullable=True)
+    xp = Column(String, nullable=True)
+    nivel = Column(String, nullable=True)
     
+    avatar_id = Column(Integer, ForeignKey("avatars.id"), nullable=True)
+
+    avatar = relationship("Avatar", backref="alunos")

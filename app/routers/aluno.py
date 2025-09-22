@@ -13,7 +13,7 @@ def create_user(aluno: schemas.AlunoCreate, db: Session = Depends(database.get_d
         raise HTTPException(status_code=400, detail="Matricula já registrada")
     
     hashed_pwd = hash_password(aluno.senha)
-    new_aluno = models.Aluno(matricula=aluno.matricula, senha=hashed_pwd, nickname=aluno.nickname, nome=aluno.nome, icone=aluno.icone)
+    new_aluno = models.Aluno(matricula=aluno.matricula, senha=hashed_pwd, nickname=aluno.nickname, nome=aluno.nome, xp=aluno.xp,nivel=aluno.nivel,)
     db.add(new_aluno)
     db.commit()
     db.refresh(new_aluno)
