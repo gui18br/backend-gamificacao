@@ -30,7 +30,7 @@ def create_atv(atv: schemas.AtividadeCreate, db: Session = Depends(database.get_
     
 @router.get("/", response_model=List[schemas.AtividadeBase])
 def get_atvs(db: Session = Depends(database.get_db)):
-    atvs = db.query(models.Atividades).all()
+    atvs = db.query(models.Atividade).all()
     return atvs
 
 @router.get("/{id}", response_model=schemas.AtividadeResponse)
