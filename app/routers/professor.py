@@ -42,7 +42,7 @@ def get_atvs(db: Session = Depends(database.get_db)):
     professores = db.query(models.Professor).all()
     return professores
 
-@router.get("/{matricula}", response_model=schemas.AlunoResponse)
+@router.get("/{matricula}", response_model=schemas.ProfessorResponse)
 def get_prof_by_id(matricula: int, db: Session = Depends(database.get_db)):
     prof = db.query(models.Professor).filter(models.Professor.matricula == matricula).first()
     
