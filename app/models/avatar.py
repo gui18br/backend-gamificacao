@@ -3,7 +3,7 @@ from sqlalchemy.orm import relationship
 from .database import Base
 
 class Avatar(Base):
-    __tablename__ = "avatar"
+    __tablename__ = "Avatar"
     
     id = Column(Integer, primary_key=True, index=True)
     caminho_foto = Column(String, nullable=False)

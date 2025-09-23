@@ -3,7 +3,7 @@ from sqlalchemy.orm import relationship
 from .database import Base
 
 class Aluno(Base):
-    __tablename__ = "alunos"
+    __tablename__ = "Aluno"
     
     matricula = Column(String, primary_key=True, index=True)
     nickname = Column(String, unique=True, nullable=True)
@@ -12,6 +12,6 @@ class Aluno(Base):
     xp = Column(String, nullable=True)
     nivel = Column(String, nullable=True)
     
-    avatar_id_fk = Column(Integer, ForeignKey("avatars.id"), nullable=True)
+    avatar_id_fk = Column(Integer, ForeignKey("Avatar.id"), nullable=True)
 
-    avatar = relationship("Avatar", backref="alunos")
+    avatar = relationship("Avatar", backref="Aluno")

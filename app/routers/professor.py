@@ -21,7 +21,7 @@ def create_user(professor: schemas.ProfessorCreate, db: Session = Depends(databa
             raise HTTPException(status_code=404, detail="Avatar não encontrado")
     
     hashed_pwd = hash_password(professor.senha)
-    new_user = models.Usuario(matricula=professor.matricula, nome=professor.nome, senha=hashed_pwd, avatar_id=professor.avatar)
+    new_user = models.Professor(matricula=professor.matricula, nome=professor.nome, senha=hashed_pwd, avatar_id=professor.avatar)
     db.add(new_user)
     db.commit()
     db.refresh(new_user)
@@ -38,7 +38,7 @@ def create_user(professor: schemas.ProfessorCreate, db: Session = Depends(databa
     }
     
 @router.get("/", response_model=List[schemas.ProfessorBase])
-def get_atvs(db: Session = Depends(database.get_db)):
+def get_profs(db: Session = Depends(database.get_db)):
     professores = db.query(models.Professor).all()
     return professores
 

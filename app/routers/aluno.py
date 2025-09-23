@@ -37,7 +37,7 @@ def create_user(aluno: schemas.AlunoCreate, db: Session = Depends(database.get_d
     }
     
 @router.get("/", response_model=List[schemas.AlunoBase])
-def get_atvs(db: Session = Depends(database.get_db)):
+def get_alunos(db: Session = Depends(database.get_db)):
     alunos = db.query(models.Aluno).all()
     return alunos
 
