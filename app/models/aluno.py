@@ -12,6 +12,6 @@ class Aluno(Base):
     xp = Column(String, nullable=True)
     nivel = Column(String, nullable=True)
     
-    avatar_id = Column(Integer, ForeignKey("avatars.id"), nullable=True)
+    avatar_id_fk = Column(Integer, ForeignKey("avatars.id"), nullable=True)
 
     avatar = relationship("Avatar", backref="alunos")

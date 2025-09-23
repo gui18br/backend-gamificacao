@@ -1,8 +1,8 @@
 from pydantic import BaseModel
 
 class ProfessorBase(BaseModel):
+    matricula: str
     nome: str
-    email: str
     senha: str
     icone: str | None = None
     

@@ -14,7 +14,7 @@ def create_user(professor: schemas.ProfessorCreate, db: Session = Depends(databa
         raise HTTPException(status_code=400, detail="email já registrado")
     
     hashed_pwd = hash_password(professor.senha)
-    new_user = models.Usuario(nome=professor.nome, senha=hashed_pwd, icone=professor.icone, email=professor.email)
+    new_user = models.Usuario(matricula=professor.matricula, nome=professor.nome, senha=hashed_pwd, avatar_id=professor.avatar_id)
     db.add(new_user)
     db.commit()
     db.refresh(new_user)
