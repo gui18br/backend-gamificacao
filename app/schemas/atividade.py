@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional
+from datetime import date
 
 class AtividadeBase(BaseModel):
     nome: str
@@ -7,6 +7,7 @@ class AtividadeBase(BaseModel):
     pontos: str
     badge_id_fk: int
     turma_id_fk: int
+    data_entrega: date
     
 class AtividadeCreate(AtividadeBase):
     pass
