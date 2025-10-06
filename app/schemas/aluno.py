@@ -6,7 +6,10 @@ class AlunoBase(BaseModel):
     nome: str
     nickname: str
     senha: str
+    xp: str
+    nivel: str
     icone: str | None = None
+    avatar_id_fk: int
     
 class AlunoCreate(AlunoBase):
     pass
@@ -22,3 +25,7 @@ class AlunoResponseSingle(BaseModel):
     
     class Config:
         from_attributes = True        
+
+class AlunoResponseCreate(BaseModel):
+    data: dict
+  
