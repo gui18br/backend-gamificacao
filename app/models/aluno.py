@@ -10,8 +10,8 @@ class Aluno(Base):
     nickname = Column(String, unique=True, nullable=True)
     nome = Column(String, nullable=False)
     senha = Column(String, nullable=True)
-    xp = Column(String, nullable=True)
-    nivel = Column(String, nullable=True)
+    xp = Column(Integer, nullable=True)
+    nivel = Column(Integer, nullable=True)
     
     avatar_id_fk = Column(Integer, ForeignKey("Avatar.id"), nullable=True)
     avatar = relationship("Avatar", backref="Aluno")
