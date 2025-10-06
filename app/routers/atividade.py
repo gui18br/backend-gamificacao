@@ -46,12 +46,12 @@ def create_atv(atv: schemas.AtividadeCreate, db: Session = Depends(database.get_
     
 @router.get("/", response_model=schemas.AtividadeResponse)
 def get_atvs(db: Session = Depends(database.get_db)):
-    atvs = db.query(Atividade.Atividade).all()
+    atvs = db.query(Atividade).all()
     return {"data": atvs}
 
 @router.get("/{id}", response_model=schemas.AtividadeResponseSingle)
 def get_atv_by_id(id: int, db: Session = Depends(database.get_db)):
-    atv = db.query(Atividade.Atividade).filter(Atividade.Atividade.id == id).first()
+    atv = db.query(Atividade).filter(Atividade.id == id).first()
     
     if not atv:
         raise HTTPException(status_code=404, detail="Atividade não encontrada")

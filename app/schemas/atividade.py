@@ -1,11 +1,11 @@
 from datetime import date, datetime
 from decimal import Decimal
-from typing import List
+from typing import List, Optional
 from pydantic import BaseModel
 
 class AtividadeBase(BaseModel):
     nome: str
-    descricao: str
+    descricao: Optional[str] = None
     nota_max: Decimal
     pontos: int
     badge_id_fk: int
@@ -18,7 +18,7 @@ class AtividadeCreate(AtividadeBase):
 class AtividadeRead(BaseModel):
     id: int
     nome: str
-    descricao: str
+    descricao: Optional[str] = None
     nota_max: Decimal
     pontos: int
     badge_id_fk: int

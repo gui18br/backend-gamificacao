@@ -10,7 +10,7 @@ from app.security import hash_password, create_access_token, ACCESS_TOKEN_EXPIRE
 
 router  = APIRouter(prefix="/alunos", tags=["Alunos"])
 
-@router.post("/", response_model=schemas.AlunoResponse)
+@router.post("/", response_model=schemas.AlunoResponseSingle)
 def create_user(aluno: schemas.AlunoCreate, db: Session = Depends(database.get_db)):
     db_aluno = db.query(models.ALuno).filter(models.User.matricula == aluno.matricula).first()
     if db_aluno:
@@ -39,16 +39,16 @@ def create_user(aluno: schemas.AlunoCreate, db: Session = Depends(database.get_d
         "access_token": f"bearer {access_token}",
     }
     
-@router.get("/", response_model=List[schemas.AlunoBase])
+@router.get("/", response_model=schemas.AlunoResponseList)
 def get_alunos(db: Session = Depends(database.get_db)):
     alunos = db.query(models.Aluno).all()
-    return alunos
+    return {"data": alunos}
 
-@router.get("/{matricula}", response_model=schemas.AlunoResponse)
-def get_aluno_by_id(matricula: int, db: Session = Depends(database.get_db)):
+@router.get("/{matricula}", response_model=schemas.AlunoResponseSingle)
+def get_aluno_by_id(matricula: str, db: Session = Depends(database.get_db)):
     aluno = db.query(models.Aluno).filter(models.Aluno.matricula == matricula).first()
     
     if not aluno:
         raise HTTPException(status_code=404, detail="Aluno não encontrado")
     
-    return aluno
+    return {"data": aluno}

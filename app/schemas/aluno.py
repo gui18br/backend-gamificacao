@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import List, Optional
 
 class AlunoBase(BaseModel):
     matricula: str
@@ -11,8 +11,14 @@ class AlunoBase(BaseModel):
 class AlunoCreate(AlunoBase):
     pass
 
-class AlunoResponse(AlunoBase):
-    matricula: str
+class AlunoResponseList(BaseModel):
+    data: List[AlunoBase]
         
     class Config:
         from_attributes = True
+        
+class AlunoResponseSingle(BaseModel):
+    data: AlunoBase
+    
+    class Config:
+        from_attributes = True        
