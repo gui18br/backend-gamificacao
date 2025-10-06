@@ -1,19 +1,41 @@
+from datetime import date, datetime
+from decimal import Decimal
+from typing import List
 from pydantic import BaseModel
-from datetime import date
 
 class AtividadeBase(BaseModel):
     nome: str
-    nota_max: str
-    pontos: str
+    descricao: str
+    nota_max: Decimal
+    pontos: int
     badge_id_fk: int
     turma_id_fk: int
-    data_entrega: date
+    data_entrega: datetime
     
 class AtividadeCreate(AtividadeBase):
     pass
 
-class AtividadeResponse(AtividadeBase):
+class AtividadeRead(BaseModel):
     id: int
+    nome: str
+    descricao: str
+    nota_max: Decimal
+    pontos: int
+    badge_id_fk: int
+    turma_id_fk: int
+    data_entrega: datetime       
+     
+    class Config:
+        from_attributes = True
+
+class AtividadeResponse(BaseModel):
+    data: List[AtividadeRead]
         
     class Config:
-        orm_mode = True
+        from_attributes = True
+        
+class AtividadeResponseSingle(BaseModel):
+    data: AtividadeRead     
+     
+    class Config:
+        from_attributes = True

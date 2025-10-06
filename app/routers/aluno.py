@@ -1,7 +1,10 @@
 from typing import List
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from app import models, schemas, database
+from app import database
+from app.schemas import aluno as schemas
+from app.models import aluno as models
+
 from datetime import timedelta
 from app.security import hash_password, create_access_token, ACCESS_TOKEN_EXPIRE_MINUTES
 

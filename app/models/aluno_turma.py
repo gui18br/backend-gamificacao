@@ -1,5 +1,5 @@
 from sqlalchemy import String, Table, Column, Integer, ForeignKey
-from .database import Base
+from app.database import Base
 
 aluno_turma = Table(
     "aluno_turma",

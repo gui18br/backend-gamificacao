@@ -1,8 +1,6 @@
-from pyexpat import model
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
-from .database import Base
-from .aluno_atividade import aluno_atividade
+from app.database import Base
 from .aluno_turma import aluno_turma
 
 class Aluno(Base):
@@ -16,15 +14,9 @@ class Aluno(Base):
     nivel = Column(String, nullable=True)
     
     avatar_id_fk = Column(Integer, ForeignKey("Avatar.id"), nullable=True)
-
     avatar = relationship("Avatar", backref="Aluno")
     
-    turmas = relationship(
-        "Turma",
-        secondary=aluno_turma,
-        back_populates="alunos"
-    )
+    turmas = relationship("Turma", secondary=aluno_turma, back_populates="alunos")
     
     badges_associados = relationship("AlunoBadge", back_populates="aluno")
-    
     atividades_associadas = relationship("AlunoAtividade", back_populates="aluno")

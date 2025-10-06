@@ -4,7 +4,7 @@ from typing import Optional
 class TurmaBase(BaseModel):
     nome: str
     requisito: str
-    professor_id_fk: int
+    professor_matricula_fk: int
     
 class TurmaCreate(TurmaBase):
     pass
@@ -13,4 +13,4 @@ class TurmaResponse(TurmaBase):
     id: int
         
     class Config:
-        orm_mode = True
+        from_attributes = True

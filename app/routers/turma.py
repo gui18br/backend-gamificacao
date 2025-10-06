@@ -1,7 +1,9 @@
 from typing import List
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from app import models, schemas, database
+from app import database
+from app.schemas import turma as schemas
+from app.models import turma as models
 from app.models.aluno import Aluno
 from app.models.turma import Turma
 
@@ -11,12 +13,12 @@ router  = APIRouter(prefix="/turmas", tags=["Turmas"])
 def create_turma(turma: schemas.TurmaCreate, db: Session = Depends(database.get_db)):
 
     prof = None
-    if turma.professor_id_fk:
-        prof = db.query(models.Professor).filter(models.Professor.id == turma.professor_id_fk).first()
+    if turma.professor_matricula_fk:
+        prof = db.query(models.Professor).filter(models.Professor.id == turma.professor_matricula_fk).first()
         if not prof:
             raise HTTPException(status_code=404, detail="Professor não encontrado")
     
-    new_turma = models.Turma(nome=turma.nome, professor_id_fk=prof)
+    new_turma = models.Turma(nome=turma.nome, professor_matricula_fk=prof)
     db.add(new_turma)
     db.commit()
     db.refresh(new_turma)

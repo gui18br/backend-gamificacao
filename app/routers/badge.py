@@ -2,7 +2,9 @@ from datetime import date
 from typing import List
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from app import models, schemas, database
+from app import database
+from app.schemas import badge as schemas
+from app.models import badge as models
 from app.models.aluno_badge import AlunoBadge
 
 router  = APIRouter(prefix="/badges", tags=["Badges"])

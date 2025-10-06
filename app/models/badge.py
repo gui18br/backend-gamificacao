@@ -1,7 +1,6 @@
-from sqlalchemy import Column, String, ForeignKey, Integer
+from sqlalchemy import Column, String, Integer
 from sqlalchemy.orm import relationship
-from .database import Base
-from .aluno_badge import aluno_badge
+from app.database import Base
 
 class Badge(Base):
     __tablename__ = "Badge"

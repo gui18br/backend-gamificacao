@@ -1,7 +1,6 @@
-from unittest.mock import Base
+from sqlalchemy import Column, String, Integer, ForeignKey, Date
 from sqlalchemy.orm import relationship
-
-from sqlalchemy import Column, Date, ForeignKey, Integer, String
+from app.database import Base
 
 class AlunoBadge(Base):
     __tablename__ = "aluno_badge"

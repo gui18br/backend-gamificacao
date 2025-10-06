@@ -1,7 +1,9 @@
 from typing import List
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from app import models, schemas, database
+from app import database
+from app.schemas import avatar as schemas
+from app.models import avatar as models
 
 router  = APIRouter(prefix="/avatares", tags=["Avatares"])
 

@@ -2,8 +2,7 @@ from pyexpat import model
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 from .aluno_turma import aluno_turma
-from .database import Base
-from .aluno_turma import aluno_turma
+from app.database import Base
 
 class Turma(Base):
     __tablename__ = "Turma"
@@ -11,7 +10,7 @@ class Turma(Base):
     id = Column(Integer, primary_key=True, index=True)
     nome = Column(String, nullable=False)
     
-    professor_id_fk = Column(Integer, ForeignKey("Professor.id"), nullable=True)
+    professor_matricula_fk = Column(Integer, ForeignKey("Professor.matricula"), nullable=True)
 
     professor = relationship("Professor", backref="Turma")
 
