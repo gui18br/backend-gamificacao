@@ -1,7 +1,11 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base, Session
+from dotenv import load_dotenv
+import os
 
-DATABASE_URL = "mysql+mysqlconnector://root:guigui10@localhost:3306/gamificado_db"
+load_dotenv()
+
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 engine = create_engine(DATABASE_URL, echo=True)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
