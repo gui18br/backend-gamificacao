@@ -10,7 +10,7 @@ class Turma(Base):
     id = Column(Integer, primary_key=True, index=True)
     nome = Column(String, nullable=False)
     
-    professor_matricula_fk = Column(Integer, ForeignKey("Professor.matricula"), nullable=True)
+    professor_matricula_fk = Column(String, ForeignKey("Professor.matricula"), nullable=True)
 
     professor = relationship("Professor", backref="Turma")
 
