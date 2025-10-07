@@ -6,12 +6,17 @@ from app.models.atividade import Atividade
 from app.models.badge import Badge
 from app.models.turma import Turma
 from app.models.aluno_atividade import AlunoAtividade
+from app.security import get_current_user
 
 
 router  = APIRouter(prefix="/atividades", tags=["Atividades"])
 
 @router.post("/", response_model=schemas.AtividadeResponseSingle)
-def create_atv(atv: schemas.AtividadeCreate, db: Session = Depends(database.get_db)):
+def create_atv(
+    atv: schemas.AtividadeCreate,
+    db: Session = Depends(database.get_db),
+    current_user: str = Depends(get_current_user)
+    ):
     
     badge = None
     if atv.badge_id_fk:

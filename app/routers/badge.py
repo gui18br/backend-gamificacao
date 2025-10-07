@@ -7,11 +7,12 @@ from app.schemas import badge as schemas
 from app.models.badge import Badge
 
 from app.models.aluno_badge import AlunoBadge
+from app.security import get_current_user
 
 router  = APIRouter(prefix="/badges", tags=["Badges"])
 
 @router.post('/', response_model=schemas.BadgeResponseSingle)
-def create_badge(badge: schemas.BadgeCreate, db: Session = Depends(database.get_db)):
+def create_badge(badge: schemas.BadgeCreate, db: Session = Depends(database.get_db), current_user: str = Depends(get_current_user)):
     
     new_badge = Badge(
         nome=badge.nome,
