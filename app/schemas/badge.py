@@ -2,10 +2,12 @@ from typing import List
 from pydantic import BaseModel
 
 class BadgeBase(BaseModel):
-    id: int
     nome: str
     requisito: str
     icone: str
+    
+class BadgeCreate(BadgeBase):
+    pass
     
 class BadgeResponse(BadgeBase):
     id: int
