@@ -7,12 +7,11 @@ from app.models import turma as models
 from app.models.aluno import Aluno
 from app.models.turma import Turma
 from app.models.professor import Professor
-from app.security import get_current_user
 
 router  = APIRouter(prefix="/turmas", tags=["Turmas"])
 
 @router.post("/", response_model=schemas.TurmaResponseSingle)
-def create_turma(turma: schemas.TurmaCreate, db: Session = Depends(database.get_db), current_user: str = Depends(get_current_user)):
+def create_turma(turma: schemas.TurmaCreate, db: Session = Depends(database.get_db),):
 
     prof = None
     if turma.professor_matricula_fk:
