@@ -50,15 +50,7 @@ Siga estas instruções para configurar e executar o projeto em seu ambiente loc
 3.  **Instale as dependências:**
     Crie um arquivo `requirements.txt` com as bibliotecas necessárias e instale-as.
     ```sh
-    # Crie o arquivo requirements.txt
-    pip freeze > requirements.txt
-
-    # Instale a partir do arquivo
     pip install -r requirements.txt
-    ```
-    *Se você não tiver um `requirements.txt`, instale as dependências principais:*
-    ```sh
-    pip install fastapi "uvicorn[standard]" sqlalchemy pydantic python-jose[cryptography] passlib[bcrypt] python-dotenv mysql-connector-python
     ```
 
 4.  **Configure as variáveis de ambiente:**
