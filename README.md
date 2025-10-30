@@ -43,7 +43,7 @@ Siga estas instruções para configurar e executar o projeto em seu ambiente loc
 
 2.  **Crie e ative um ambiente virtual:**
     ```sh
-    python3 -m venv venv
+    python3 -m venv venv # No windows py -3.12 -m venv venv
     source venv/bin/activate  # No Windows, use `venv\Scripts\activate`
     ```
 
