@@ -44,15 +44,28 @@ def get_turma_by_id(id: int, db: Session = Depends(database.get_db)):
     
     return {"data":turma}
 
-@router.post("/alunos/{matricula}/turmas/{turma_id}")
+@router.post("/{turma_id}/alunos/{matricula}")
 def add_aluno_turma(matricula: str, turma_id: int, db: Session = Depends(database.get_db)):
     aluno = db.get(Aluno, matricula)
     turma = db.get(Turma, turma_id)
+    
+    if not aluno:
+        raise HTTPException(status_code=404, detail="Aluno não encontrado")
+    if not turma:
+        raise HTTPException(status_code=404, detail="Turma não encontrada")
+
+    if turma in aluno.turmas:
+        raise HTTPException(status_code=400, detail="Aluno já está matriculado nessa turma")
+
     aluno.turmas.append(turma)
     db.commit()
     return {"msg": f"Aluno {aluno.nome} adicionado à turma {turma.nome}"}
 
-@router.get("alunos/{matricula}/turmas")
+@router.get("/alunos/{matricula}")
 def listar_turmas_aluno(matricula: str, db: Session = Depends(database.get_db)):
     aluno = db.get(Aluno, matricula)
-    return aluno.turmas
+    
+    if not aluno:
+        raise HTTPException(status_code=404, detail="Aluno não encontrado")
+    
+    return {"data": aluno.turmas}
