@@ -28,7 +28,6 @@ def create_avatar(
     db.refresh(new_avatar)
     
     return {"data": new_avatar}
-# -------------------------------------------------------------------
 
 @router.get("/", response_model=schemas.AvatarResponseList)
 def get_avatares(db: Session = Depends(database.get_db)):
