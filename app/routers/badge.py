@@ -3,6 +3,7 @@ from typing import List
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app import database
+from app.models.aluno import Aluno
 from app.schemas import badge as schemas
 from app.models.badge import Badge
 
@@ -39,8 +40,16 @@ def get_badge_by_id(id: int, db: Session = Depends(database.get_db)):
     
     return {"data": badge}
 
-@router.post("/alunos/{matricula}/badges/{badge_id}")
+@router.post("/{badge_id}/alunos/{matricula}")
 def conquistar_badge(matricula: str, badge_id: int, db: Session = Depends(database.get_db)):
+    aluno = db.get(Aluno, matricula)
+    badge = db.get(Badge, badge_id)
+    
+    if not aluno:
+        raise HTTPException(status_code=404, detail="Aluno não encontrado")
+    if not badge:
+        raise HTTPException(status_code=404, detail="Badge não encontrada")
+    
     conquista = AlunoBadge(
         aluno_matricula_fk=matricula,
         badge_id_fk=badge_id, 
@@ -49,4 +58,27 @@ def conquistar_badge(matricula: str, badge_id: int, db: Session = Depends(databa
     
     db.add(conquista)
     db.commit()
-    return {"msg": "Badge conquistado com sucesso"}
+    return {"data": "Badge conquistado com sucesso"}
+
+@router.get("/alunos/{matricula}")
+def get_badges_aluno(matricula: str, db: Session = Depends(database.get_db)):
+    aluno = db.get(Aluno, matricula)
+    
+    if not aluno:
+        raise HTTPException(status_code=404, detail="Aluno não encontrado")
+    
+    conquistas = (
+        db.query(AlunoBadge)
+        .join(Badge, AlunoBadge.badge_id_fk == Badge.id)
+        .filter(AlunoBadge.aluno_matricula_fk == matricula)
+        .all()
+    )
+    
+    return {"data": [
+        {
+            "badge_id": conquista.badge_id_fk,
+            "badge_nome": conquista.badge.nome,
+            "data_conquista": conquista.data_conquista,
+        }
+        for conquista in conquistas
+    ]}
