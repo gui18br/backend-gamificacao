@@ -1,0 +1,182 @@
+USE gamificado_db;
+
+SET FOREIGN_KEY_CHECKS = 0;
+
+TRUNCATE TABLE Aluno_Atividade;
+TRUNCATE TABLE Aluno_Turma;
+TRUNCATE TABLE Aluno_Badge;
+TRUNCATE TABLE Atividade;
+TRUNCATE TABLE Turma;
+TRUNCATE TABLE Aluno;
+TRUNCATE TABLE Professor;
+TRUNCATE TABLE Badge;
+TRUNCATE TABLE Avatar;
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+-- Inserts de Avatares
+INSERT INTO Avatar (nome, caminho_foto) VALUES
+('Avatar (1)', '/imagens/avatars/avatar (1).png'),
+('Avatar (2)', '/imagens/avatars/avatar (2).png'),
+('Avatar (3)', '/imagens/avatars/avatar (3).png'),
+('Avatar (4)', '/imagens/avatars/avatar (4).png'),
+('Avatar (5)', '/imagens/avatars/avatar (5).png'),
+('Avatar (6)', '/imagens/avatars/avatar (6).png'),
+('Avatar (7)', '/imagens/avatars/avatar (7).png'),
+('Avatar (8)', '/imagens/avatars/avatar (8).png'),
+('Avatar (9)', '/imagens/avatars/avatar (9).png'),
+('Avatar (10)', '/imagens/avatars/avatar (10).png'),
+('Avatar (11)', '/imagens/avatars/avatar (11).png'),
+('Avatar (12)', '/imagens/avatars/avatar (12).png'),
+('Avatar (13)', '/imagens/avatars/avatar (13).png'),
+('Avatar (14)', '/imagens/avatars/avatar (14).png'),
+('Avatar (15)', '/imagens/avatars/avatar (15).png'),
+('Avatar (16)', '/imagens/avatars/avatar (16).png'),
+('Avatar (17)', '/imagens/avatars/avatar (17).png'),
+('Avatar (18)', '/imagens/avatars/avatar (18).png'),
+('Avatar (19)', '/imagens/avatars/avatar (19).png'),
+('Avatar (20)', '/imagens/avatars/avatar (20).png'),
+('Avatar (21)', '/imagens/avatars/avatar (21).png'),
+('Avatar (22)', '/imagens/avatars/avatar (22).png'),
+('Avatar (23)', '/imagens/avatars/avatar (23).png'),
+('Avatar (24)', '/imagens/avatars/avatar (24).png'),
+('Avatar (25)', '/imagens/avatars/avatar (25).png'),
+('Avatar (26)', '/imagens/avatars/avatar (26).png'),
+('Avatar (27)', '/imagens/avatars/avatar (27).png'),
+('Avatar (28)', '/imagens/avatars/avatar (28).png'),
+('Avatar (29)', '/imagens/avatars/avatar (29).png'),
+('Avatar (30)', '/imagens/avatars/avatar (30).png'),
+('Avatar (31)', '/imagens/avatars/avatar (31).png'),
+('Avatar (32)', '/imagens/avatars/avatar (32).png'),
+('Avatar (33)', '/imagens/avatars/avatar (33).png'),
+('Avatar (34)', '/imagens/avatars/avatar (34).png'),
+('Avatar (35)', '/imagens/avatars/avatar (35).png'),
+('Avatar (36)', '/imagens/avatars/avatar (36).png'),
+('Avatar (37)', '/imagens/avatars/avatar (37).png'),
+('Avatar (38)', '/imagens/avatars/avatar (38).png'),
+('Avatar (39)', '/imagens/avatars/avatar (39).png'),
+('Avatar (40)', '/imagens/avatars/avatar (40).png'),
+('Avatar (41)', '/imagens/avatars/avatar (41).png'),
+('Avatar (42)', '/imagens/avatars/avatar (42).png'),
+('Avatar (43)', '/imagens/avatars/avatar (43).png'),
+('Avatar (44)', '/imagens/avatars/avatar (44).png'),
+('Avatar (45)', '/imagens/avatars/avatar (45).png'),
+('Avatar (46)', '/imagens/avatars/avatar (46).png'),
+('Avatar (47)', '/imagens/avatars/avatar (47).png'),
+('Avatar (48)', '/imagens/avatars/avatar (48).png'),
+('Avatar (49)', '/imagens/avatars/avatar (49).png'),
+('Avatar (50)', '/imagens/avatars/avatar (50).png'),
+('Avatar (51)', '/imagens/avatars/avatar (51).png'),
+('Avatar (52)', '/imagens/avatars/avatar (52).png'),
+('Avatar (53)', '/imagens/avatars/avatar (53).png'),
+('Avatar (54)', '/imagens/avatars/avatar (54).png'),
+('Avatar (55)', '/imagens/avatars/avatar (55).png'),
+('Avatar (56)', '/imagens/avatars/avatar (56).png'),
+('Avatar (57)', '/imagens/avatars/avatar (57).png'),
+('Avatar (58)', '/imagens/avatars/avatar (58).png'),
+('Avatar (59)', '/imagens/avatars/avatar (59).png'),
+('Avatar (60)', '/imagens/avatars/avatar (60).png'),
+('Avatar (61)', '/imagens/avatars/avatar (61).png'),
+('Avatar (62)', '/imagens/avatars/avatar (62).png'),
+('Avatar (63)', '/imagens/avatars/avatar (63).png'),
+('Avatar (64)', '/imagens/avatars/avatar (64).png'),
+('Avatar (65)', '/imagens/avatars/avatar (65).png'),
+('Avatar (66)', '/imagens/avatars/avatar (66).png'),
+('Avatar (67)', '/imagens/avatars/avatar (67).png'),
+('Avatar (68)', '/imagens/avatars/avatar (68).png'),
+('Avatar (69)', '/imagens/avatars/avatar (69).png'),
+('Avatar (70)', '/imagens/avatars/avatar (70).png'),
+('Avatar (71)', '/imagens/avatars/avatar (71).png'),
+('Avatar (72)', '/imagens/avatars/avatar (72).png'),
+('Avatar (73)', '/imagens/avatars/avatar (73).png'),
+('Avatar (74)', '/imagens/avatars/avatar (74).png'),
+('Avatar (75)', '/imagens/avatars/avatar (75).png'),
+('Avatar (76)', '/imagens/avatars/avatar (76).png'),
+('Avatar (77)', '/imagens/avatars/avatar (77).png'),
+('Avatar (78)', '/imagens/avatars/avatar (78).png'),
+('Avatar (79)', '/imagens/avatars/avatar (79).png'),
+('Avatar (80)', '/imagens/avatars/avatar (80).png'),
+('Avatar (81)', '/imagens/avatars/avatar (81).png'),
+('Avatar (82)', '/imagens/avatars/avatar (82).png'),
+('Avatar (83)', '/imagens/avatars/avatar (83).png'),
+('Avatar (84)', '/imagens/avatars/avatar (84).png'),
+('Avatar (85)', '/imagens/avatars/avatar (85).png'),
+('Avatar (86)', '/imagens/avatars/avatar (86).png'),
+('Avatar (87)', '/imagens/avatars/avatar (87).png'),
+('Avatar (88)', '/imagens/avatars/avatar (88).png'),
+('Avatar (89)', '/imagens/avatars/avatar (89).png'),
+('Avatar (90)', '/imagens/avatars/avatar (90).png'),
+('Avatar (91)', '/imagens/avatars/avatar (91).png'),
+('Avatar (92)', '/imagens/avatars/avatar (92).png'),
+('Avatar (93)', '/imagens/avatars/avatar (93).png'),
+('Avatar (94)', '/imagens/avatars/avatar (94).png'),
+('Avatar (95)', '/imagens/avatars/avatar (95).png'),
+('Avatar (96)', '/imagens/avatars/avatar (96).png'),
+('Avatar (97)', '/imagens/avatars/avatar (97).png'),
+('Avatar (98)', '/imagens/avatars/avatar (98).png'),
+('Avatar (99)', '/imagens/avatars/avatar (99).png'),
+('Avatar (100)', '/imagens/avatars/avatar (100).png'),
+('Avatar (101)', '/imagens/avatars/avatar (101).png'),
+('Avatar (102)', '/imagens/avatars/avatar (102).png'),
+('Avatar (103)', '/imagens/avatars/avatar (103).png'),
+('Avatar (104)', '/imagens/avatars/avatar (104).png'),
+('Avatar (105)', '/imagens/avatars/avatar (105).png'),
+('Avatar (106)', '/imagens/avatars/avatar (106).png'),
+('Avatar (107)', '/imagens/avatars/avatar (107).png'),
+('Avatar (108)', '/imagens/avatars/avatar (108).png'),
+('Avatar (109)', '/imagens/avatars/avatar (109).png'),
+('Avatar (110)', '/imagens/avatars/avatar (110).png'),
+('Avatar (111)', '/imagens/avatars/avatar (111).png'),
+('Avatar (112)', '/imagens/avatars/avatar (112).png'),
+('Avatar (113)', '/imagens/avatars/avatar (113).png'),
+('Avatar (114)', '/imagens/avatars/avatar (114).png'),
+('Avatar (115)', '/imagens/avatars/avatar (115).png');
+
+-- Inserts de Badges
+INSERT INTO Badge (nome, requisito, icone) VALUES
+('Conquistador', 'Completar a primeira atividade', '/imagens/badges/conquistador.png'),
+('Estudioso', 'Obter nota máxima em uma atividade', '/imagens/badges/estudioso.png'),
+('Persistente', 'Participar de todas as atividades da turma', '/imagens/badges/persistente.png');
+
+-- Inserts de Professores
+INSERT INTO Professor (matricula, nome, senha, avatar_id_fk) VALUES
+('P001', 'Carlos Souza', 'HASH_SENHA_1', 1),
+('P002', 'Maria Oliveira', 'HASH_SENHA_2', 2);
+
+-- Inserts de Turmas
+INSERT INTO Turma (nome, professor_matricula_fk) VALUES
+('Turma de Banco de Dados', 'P001'),
+('Turma de Programação Web', 'P002');
+
+-- Inserts de Atividades
+INSERT INTO Atividade (nome, descricao, nota_max, pontos, data_entrega, badge_id_fk, turma_id_fk) VALUES
+('Atividade 1 - Modelagem BD', 'Criar um modelo ER simples', 10.00, 100, '2025-10-15 23:59:59', 1, 1),
+('Atividade 2 - Normalização', 'Aplicar até 3FN no modelo criado', 10.00, 150, '2025-10-20 23:59:59', 2, 1),
+('Atividade 1 - HTML e CSS', 'Construir uma landing page simples', 10.00, 200, '2025-10-18 23:59:59', 1, 2);
+
+-- Inserts de Alunos
+INSERT INTO Aluno (matricula, nome, nickname, senha, xp, nivel, avatar_id_fk) VALUES
+('A001', 'João Silva', 'joaoslv', 'HASH_SENHA_3', 50, 1, 2),
+('A002', 'Ana Lima', 'aninha', 'HASH_SENHA_4', 120, 2, 3),
+('A003', 'Pedro Santos', 'pedrinho', 'HASH_SENHA_5', 300, 3, 1);
+
+-- Inserts de Aluno_Turma (matrículas em turmas)
+INSERT INTO Aluno_Turma (aluno_matricula_fk, turma_id_fk) VALUES
+('A001', 1),
+('A002', 1),
+('A002', 2),
+('A003', 2);
+
+-- Inserts de Aluno_Atividade (notas obtidas)
+INSERT INTO Aluno_Atividade (aluno_matricula_fk, atividade_id_fk, nota) VALUES
+('A001', 1, 8.5),
+('A002', 1, 10.0),
+('A002', 2, 9.0),
+('A003', 3, 7.5);
+
+-- Inserts de Aluno_Badge (badges conquistados)
+INSERT INTO Aluno_Badge (aluno_matricula_fk, badge_id_fk, data_conquista) VALUES
+('A001', 1, NOW()),
+('A002', 1, NOW()),
+('A002', 2, NOW()),
+('A003', 1, NOW());
