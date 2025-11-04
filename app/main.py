@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.routers import aluno, atividade, avatar, badge, login, professor, turma
+from fastapi.staticfiles import StaticFiles
 
 
 app = FastAPI()
@@ -29,3 +30,5 @@ app.include_router(login.router)
 @app.get("/")
 def root():
     return {"message": "API rodando com FastAPI 🚀"}
+
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
