@@ -134,9 +134,25 @@ INSERT INTO Avatar (nome, caminho_foto) VALUES
 
 -- Inserts de Badges
 INSERT INTO Badge (nome, requisito, icone) VALUES
-('Conquistador', 'Completar a primeira atividade', '/imagens/badges/conquistador.png'),
-('Estudioso', 'Obter nota máxima em uma atividade', '/imagens/badges/estudioso.png'),
-('Persistente', 'Participar de todas as atividades da turma', '/imagens/badges/persistente.png');
+('Hcomportamento', '', '/imagens/badges/H-comportamento.fw.png'),
+('Hemocional', '', '/imagens/badges/H-emocional.fw.png'),
+('Hescrita', '', '/imagens/badges/H-escrita.fw.png'),
+('Hleitura', '', '/imagens/badges/H-leitura.fw.png'),
+('Hraciocinio', '', '/imagens/badges/H-raciocinio.fw.png'),
+('Bug', '', '/imagens/badges/bug.fw.png'),
+('Codepower', '', '/imagens/badges/codepower.fw.png'),
+('Comunica', '', '/imagens/badges/comunica.fw.png'),
+('Configurar', '', '/imagens/badges/configurar.fw.png'),
+('Desafio', '', '/imagens/badges/desafio.fw.png'),
+('Escudo', '', '/imagens/badges/escudo.fw.png'),
+('Logica', '', '/imagens/badges/logica.fw.png'),
+('Loop', '', '/imagens/badges/loop.fw.png'),
+('Manutencao', '', '/imagens/badges/manutencao.fw.png'),
+('Mouse', '', '/imagens/badges/mouse.fw.png'),
+('Output', '', '/imagens/badges/output.fw.png'),
+('Sequencia', '', '/imagens/badges/sequencia.fw.png'),
+('Social', '', '/imagens/badges/social.fw.png'),
+('Timer', '', '/imagens/badges/timer.fw.png');
 
 -- Inserts de Professores
 INSERT INTO Professor (matricula, nome, senha, avatar_id_fk) VALUES
