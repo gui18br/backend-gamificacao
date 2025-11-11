@@ -99,4 +99,4 @@ CREATE TABLE Aluno_Badge (
     PRIMARY KEY (aluno_matricula_fk, badge_id_fk),
     CONSTRAINT fk_alunobadge_aluno FOREIGN KEY (aluno_matricula_fk) REFERENCES Aluno(matricula) ON DELETE CASCADE,
     CONSTRAINT fk_alunobadge_badge FOREIGN KEY (badge_id_fk) REFERENCES Badge(id) ON DELETE CASCADE
-) ENGINE=InnoDB;aluno
+) ENGINE=InnoDB;
